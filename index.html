@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="" lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Tailwind (Browser CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    /* --- فقط CSS: سوییچ با چک‌باکس مخفی --- */
+    #themeToggle {
+      position: absolute;
+      inset: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* پیش‌فرض: لایت دیده شود */
+    #root-light {
+      display: block;
+    }
+
+    #root-dark {
+      display: none;
+    }
+
+    /* وقتی چک‌باکس تیک خورد → دارک دیده شود */
+    #themeToggle:checked~#root-light {
+      display: none;
+    }
+
+    #themeToggle:checked~#root-dark {
+      display: block;
+    }
+
+    /* انیمیشن نرم هنگام سوییچ */
+    #root-light,
+    #root-dark {
+      transition: opacity .3s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- چک‌باکس مخفی که با لیبل (دکمه) کنترل می‌شه -->
+  <input id="themeToggle" type="checkbox" />
+
+  <!-- ====== نسخه لایت (کد خودت بدون تغییر) ====== -->
+  <div id="root-light">
+    <header>
+      <!-- همون دکمه خودت؛ فقط به‌جای div کردم label تا چک‌باکس رو کلیک کنه -->
+      <label for="themeToggle" id="btnDark-light"
+        class="flex items-center justify-center bg-cyan-200 h-14 w-14 rounded-full mx-auto mt-5 shadow-xl hover:cursor-pointer hover:bg-cyan-400 transition duration-300 ease-in-out">
+        <p><i class="fa-solid fa-moon fa-2x"></i></p>
+      </label>
+    </header>
+
+    <main class="mt-6">
+      <div class="w-75 h-100 border-1 border-cyan-500 m-auto rounded-lg sm:w-100 md:w-130 lg:w-150 xl:w-175 2xl:w-200">
+        <p class="text-right text-5xl font-mono pr-6 pt-6">0</p>
+        <div class="mt-7 px-2 text-center mx-auto">
+          <div class="flex justify-center gap-1 ">
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100">%</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100">CE</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100">C</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100"><i
+                class="fa-solid fa-delete-left"></i></button>
+          </div>
+
+          <div class="flex justify-center gap-1 mt-1">
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100">1/x</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100">x²</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100">²√x</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100">÷</button>
+          </div>
+
+          <div class="flex justify-center gap-1 mt-1">
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">7</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">8</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">9</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100">x</button>
+          </div>
+
+          <div class="flex justify-center gap-1 mt-1">
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">4</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">5</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">6</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100">-</button>
+          </div>
+
+          <div class="flex justify-center gap-1 mt-1">
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">1</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">2</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">3</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-neutral-100">+</button>
+          </div>
+
+          <div class="flex justify-center gap-1 mt-1">
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">+/-</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">0</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">.</button>
+            <button
+              class="w-1/1 h-11.2 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out bg-cyan-200 text-xl font-bold">=</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ====== نسخه دارک (CSS-only؛ بدون JS) ====== -->
+  <div id="root-dark" class="bg-slate-900 min-h-screen text-white">
+    <header>
+      <!-- همون دکمه، فقط تیره‌اش -->
+      <label for="themeToggle" id="btnDark-dark"
+        class="flex items-center justify-center bg-slate-900 h-14 w-14 rounded-full mx-auto mt-5 shadow-xl hover:cursor-pointer hover:bg-slate-800 transition duration-300 ease-in-out border border-slate-700">
+        <p><i class="fa-solid fa-sun fa-2x text-white"></i></p>
+      </label>
+    </header>
+
+    <main class="mt-6">
+      <div class="w-75 h-100 m-auto rounded-lg sm:w-100 md:w-130 lg:w-150 xl:w-175 2xl:w-200 border-1 border-cyan-500">
+        <p class="text-right text-5xl font-mono pr-6 pt-6 text-white">0</p>
+
+        <div class="mt-7 px-2 text-center mx-auto">
+          <div class="flex justify-center gap-1">
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400">%</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400">CE</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400">C</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400"><i
+                class="fa-solid fa-delete-left"></i></button>
+          </div>
+
+          <div class="flex justify-center gap-1 mt-1">
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400">1/x</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400">x²</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400">²√x</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400">÷</button>
+          </div>
+
+          <div class="flex justify-center gap-1 mt-1">
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-800 text-slate-100 hover:border-emerald-400">7</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-800 text-slate-100 hover:border-emerald-400">8</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-800 text-slate-100 hover:border-emerald-400">9</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400">x</button>
+          </div>
+
+          <div class="flex justify-center gap-1 mt-1">
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-800 text-slate-100 hover:border-emerald-400">4</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-800 text-slate-100 hover:border-emerald-400">5</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-800 text-slate-100 hover:border-emerald-400">6</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400">-</button>
+          </div>
+
+          <div class="flex justify-center gap-1 mt-1">
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">1</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">2</button>
+            <button
+              class="w-1/1 py-2.5 border-1 border-gray-200 rounded-md shadow-lg cursor-pointer hover:border-emerald-800 transition duration-300 ease-in-out">3</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-700 text-slate-100 hover:border-emerald-400">+</button>
+          </div>
+
+          <div class="flex justify-center gap-1 mt-1">
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-800 text-slate-100 hover:border-emerald-400">+/-</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-800 text-slate-100 hover:border-emerald-400">0</button>
+            <button
+              class="w-1/1 py-2.5 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-800 text-slate-100 hover:border-emerald-400">.</button>
+            <button
+              class="w-1/1 h-11.2 rounded-md shadow-lg cursor-pointer transition duration-300 ease-in-out border-1 border-slate-700 bg-slate-900 text-xl font-bold hover:border-emerald-400">=</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
