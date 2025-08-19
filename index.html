@@ -14,7 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style>
-    /* --- فقط CSS: سوییچ با چک‌باکس مخفی --- */
+   
     #themeToggle {
       position: absolute;
       inset: 0;
@@ -24,7 +24,7 @@
       pointer-events: none;
     }
 
-    /* پیش‌فرض: لایت دیده شود */
+    
     #root-light {
       display: block;
     }
@@ -33,7 +33,7 @@
       display: none;
     }
 
-    /* وقتی چک‌باکس تیک خورد → دارک دیده شود */
+    
     #themeToggle:checked~#root-light {
       display: none;
     }
@@ -42,7 +42,7 @@
       display: block;
     }
 
-    /* انیمیشن نرم هنگام سوییچ */
+    
     #root-light,
     #root-dark {
       transition: opacity .3s ease;
@@ -51,13 +51,13 @@
 </head>
 
 <body>
-  <!-- چک‌باکس مخفی که با لیبل (دکمه) کنترل می‌شه -->
+  
   <input id="themeToggle" type="checkbox" />
 
-  <!-- ====== نسخه لایت (کد خودت بدون تغییر) ====== -->
+ 
   <div id="root-light">
     <header>
-      <!-- همون دکمه خودت؛ فقط به‌جای div کردم label تا چک‌باکس رو کلیک کنه -->
+      
       <label for="themeToggle" id="btnDark-light"
         class="flex items-center justify-center bg-cyan-200 h-14 w-14 rounded-full mx-auto mt-5 shadow-xl hover:cursor-pointer hover:bg-cyan-400 transition duration-300 ease-in-out">
         <p><i class="fa-solid fa-moon fa-2x"></i></p>
@@ -139,10 +139,10 @@
     </main>
   </div>
 
-  <!-- ====== نسخه دارک (CSS-only؛ بدون JS) ====== -->
+  
   <div id="root-dark" class="bg-slate-900 min-h-screen text-white">
     <header>
-      <!-- همون دکمه، فقط تیره‌اش -->
+      
       <label for="themeToggle" id="btnDark-dark"
         class="flex items-center justify-center bg-slate-900 h-14 w-14 rounded-full mx-auto mt-5 shadow-xl hover:cursor-pointer hover:bg-slate-800 transition duration-300 ease-in-out border border-slate-700">
         <p><i class="fa-solid fa-sun fa-2x text-white"></i></p>
